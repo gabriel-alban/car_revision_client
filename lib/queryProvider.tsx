@@ -6,8 +6,8 @@ import dynamic from 'next/dynamic'
 
 const ReactQueryDevtools = dynamic(
     () => import('@tanstack/react-query-devtools').then((mod) => mod.ReactQueryDevtools),
-    { ssr: false }
-  )
+    { ssr: false, loading: () => <p>Loading</p> }
+)
 
 export const QueryProviders = ({ children }: { children: React.ReactNode }) => {
   const queryClient = getQueryClient()
@@ -15,7 +15,7 @@ export const QueryProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryClientProvider client={queryClient}>
       {children}
-      <ReactQueryDevtools initialIsOpen={true} buttonPosition="bottom-right" />
+      <ReactQueryDevtools initialIsOpen={false} buttonPosition="bottom-right" />
     </QueryClientProvider>
   )
 }
