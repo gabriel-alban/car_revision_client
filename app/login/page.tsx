@@ -1,9 +1,7 @@
 "use client"
 
-import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react"
-import { authApi } from "@/api/client/authApi";
 import {
     Alert,
     Box,
@@ -38,7 +36,6 @@ export default function LoginPage() {
             })
 
             const data = await response.json().catch(() => ({}))
-            console.log(data);
 
             if (!response.ok) {
                 setError(data.message ?? "Unable to sign in")

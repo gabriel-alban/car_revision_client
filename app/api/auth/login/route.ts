@@ -16,7 +16,6 @@ export async function POST(req: Request) {
         }
 
         const data = await upstream.json();
-        console.log("DATA", data);
         const token = data.token || data.accessToken;
 
         if (!token) {
