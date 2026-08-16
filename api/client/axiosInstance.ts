@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAuthToken } from "@/utils/getClientAuthToken";
+import { getAuthToken } from "@/utils/getAuthToken";
 
 export const axiosInstance = axios.create({
 	withCredentials: true,
