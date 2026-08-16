@@ -10,11 +10,6 @@ export async function POST(req: Request) {
             body: JSON.stringify({ email, password }),
         });
 
-
-        if (!upstream.ok) {
-            return NextResponse.json({ message: "Invalid credentials" }, { status: 401 });
-        }
-
         const data = await upstream.json();
         const token = data.token || data.accessToken;
 
