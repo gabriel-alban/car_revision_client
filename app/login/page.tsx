@@ -13,6 +13,7 @@ import {
     Stack,
     Text,
 } from "@chakra-ui/react"
+import { useAuth } from "@/hooks/useAuth";
 
 export default function LoginPage() {
     const router = useRouter();
@@ -21,6 +22,8 @@ export default function LoginPage() {
     const [password, setPassword] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState<string | null>(null)
+
+    const {setIsLoggedIn} = useAuth();
 
 
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -41,6 +44,7 @@ export default function LoginPage() {
                 setError(data.message ?? "Unable to sign in")
                 return
             }
+            setIsLoggedIn(true);
 
             router.push("/dashboard")
             router.refresh()
