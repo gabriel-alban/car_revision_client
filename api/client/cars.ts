@@ -7,7 +7,7 @@ export interface CarsResponse {
 
 export const carsApi = {
     get: async (): Promise<CarsResponse> => {
-        const { data } = await axiosInstance.get('/api/cars');
+        const { data } = await axiosInstance.get<CarsResponse>('/api/cars');
 
         return data;
     }
