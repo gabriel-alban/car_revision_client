@@ -10,10 +10,11 @@ import {
   Table,
   Text,
 } from "@chakra-ui/react";
+import { Car } from "@/api/types";
 
 export const Cars = () => {
   const { data, isLoading, isError } = useQuery(carsQueries.useList());
-  const cars = Array.isArray(data) ? data : data?.items ?? [];
+  const cars = data?.items ?? [];
   const [openCar, setOpenCar] = useState<number | null>(null);
 
   return (
@@ -70,7 +71,7 @@ export const Cars = () => {
             </Table.Header>
 
             <Table.Body>
-              {cars.map((car: any, index: number) => {
+              {cars.map((car: Car, index: number) => {
                 const isOpen = openCar === index;
 
                 return (

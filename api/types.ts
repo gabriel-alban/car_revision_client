@@ -4,9 +4,10 @@ export interface User {
     password: string;
 }
 
+export type PublicUser = Omit<User, 'password'>;
 export interface Car {
     brand: string;
     model: string;
     km_range: string;
-    user: User
+    user: PublicUser
 }

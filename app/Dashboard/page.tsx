@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text } from "@chakra-ui/react";
 import { Cars } from "@/components/ui/Cars";
 
 export default function Page() {
@@ -12,7 +12,6 @@ export default function Page() {
                 Overview
               </Text>
             </Stack>
-
             <Cars />
           </Stack>
         </Box>

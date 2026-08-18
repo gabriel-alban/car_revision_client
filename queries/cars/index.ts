@@ -4,7 +4,7 @@ import { queryOptions } from "@tanstack/react-query"
 export const carsQueries = {
     useList: () => {
         return queryOptions({
-            queryKey: ['car'],
+            queryKey: ['cars'],
             queryFn: async () => {
                 return await carsApi.get();
             }
